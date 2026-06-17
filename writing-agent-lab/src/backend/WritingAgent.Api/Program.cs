@@ -88,7 +88,7 @@ app.MapPost("/api/writing/chat",async (
     
 });
 
-app.MapAGUI(agentName: "ClarificationAgent",pattern:"/agui/agent/clarification-agent");
+app.MapAGUI(agentName: "ClarificationAgent",pattern:"/agui/agents/clarification-agent");
 
 app.Run();
 
