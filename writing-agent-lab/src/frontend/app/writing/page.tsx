@@ -2,6 +2,7 @@
 
 import { CopilotKit } from "@copilotkit/react-core";
 import { CopilotChat } from "@copilotkit/react-ui";
+import { ClarificationToolRegistration } from "./ClarificationTool";
 import "@copilotkit/react-ui/styles.css";
 
 function ClarificationAgentChat() {
@@ -28,11 +29,32 @@ function ClarificationAgentChat() {
   );
 }
 
-export default function Home() {
+
+export default function WritingPage() {
   return (
-    // runtimeUrl 指向 Next.js 中的 /api/copilotkit；agent 名称要和 route.ts 中注册的一致。
     <CopilotKit runtimeUrl="/api/copilotkit" agent="clarificationAgent">
-      <ClarificationAgentChat />
+      <ClarificationToolRegistration />
+
+      <main className="mx-auto flex min-h-screen max-w-3xl flex-col p-6">
+        <h1 className="mb-4 text-2xl font-semibold">Clarification Agent</h1>
+        <CopilotChat
+          labels={{
+            title: "WritingFlow AI",
+            initial: "告诉我你想写什么，我会先帮你澄清成 Writing Brief。",
+          }}
+        />
+      </main>
     </CopilotKit>
   );
 }
+
+// export default function Home() {
+//   return (
+//     // runtimeUrl 指向 Next.js 中的 /api/copilotkit；agent 名称要和 route.ts 中注册的一致。
+//     <CopilotKit runtimeUrl="/api/copilotkit" agent="clarificationAgent">
+//       <ClarificationAgentChat />
+//       <ClarificationToolRegistration />
+//       <WritingClarificationWorkspace />
+//     </CopilotKit>
+//   );
+// }
